@@ -8,16 +8,16 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>pthread_pool | Mao Lixuan&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="pthread_cond_wait()  都必须和一个互斥锁配合，以防止多个线程同时请求pthread_cond_wait()（或pthread_cond_timedwait()，下同）的竞争条件（Race   Condition）。mutex互斥锁必须是普通锁（PTHREAD_MUTEX_TIMED_NP）或者适应锁（PTHREAD_MUTEX_ADAPTIVE_NP），且在调用pthread_">
+  <meta name="description" content="##*pthread_cond_wait()   都必须和一个互斥锁配合，以防止多个线程同时请求pthread_cond_wait()（或pthread_cond_timedwait()，下同）的竞争条件（Race   Condition）。mutex互斥锁必须是普通锁（PTHREAD_MUTEX_TIMED_NP）或者适应锁（PTHREAD_MUTEX_ADAPTIVE_NP），且在调用pthr">
 <meta property="og:type" content="article">
 <meta property="og:title" content="pthread_pool">
 <meta property="og:url" content="http://yoursite.com/2017/10/29/first/index.html">
 <meta property="og:site_name" content="Mao Lixuan&#39;s blog">
-<meta property="og:description" content="pthread_cond_wait()  都必须和一个互斥锁配合，以防止多个线程同时请求pthread_cond_wait()（或pthread_cond_timedwait()，下同）的竞争条件（Race   Condition）。mutex互斥锁必须是普通锁（PTHREAD_MUTEX_TIMED_NP）或者适应锁（PTHREAD_MUTEX_ADAPTIVE_NP），且在调用pthread_">
-<meta property="og:updated_time" content="2017-10-29T12:05:20.243Z">
+<meta property="og:description" content="##*pthread_cond_wait()   都必须和一个互斥锁配合，以防止多个线程同时请求pthread_cond_wait()（或pthread_cond_timedwait()，下同）的竞争条件（Race   Condition）。mutex互斥锁必须是普通锁（PTHREAD_MUTEX_TIMED_NP）或者适应锁（PTHREAD_MUTEX_ADAPTIVE_NP），且在调用pthr">
+<meta property="og:updated_time" content="2017-10-29T12:06:58.333Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="pthread_pool">
-<meta name="twitter:description" content="pthread_cond_wait()  都必须和一个互斥锁配合，以防止多个线程同时请求pthread_cond_wait()（或pthread_cond_timedwait()，下同）的竞争条件（Race   Condition）。mutex互斥锁必须是普通锁（PTHREAD_MUTEX_TIMED_NP）或者适应锁（PTHREAD_MUTEX_ADAPTIVE_NP），且在调用pthread_">
+<meta name="twitter:description" content="##*pthread_cond_wait()   都必须和一个互斥锁配合，以防止多个线程同时请求pthread_cond_wait()（或pthread_cond_timedwait()，下同）的竞争条件（Race   Condition）。mutex互斥锁必须是普通锁（PTHREAD_MUTEX_TIMED_NP）或者适应锁（PTHREAD_MUTEX_ADAPTIVE_NP），且在调用pthr">
   
     <link rel="alternative" href="/atom.xml" title="Mao Lixuan&#39;s blog" type="application/atom+xml">
   
@@ -173,7 +173,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="pthread-cond-wait"><a href="#pthread-cond-wait" class="headerlink" title="pthread_cond_wait()"></a>pthread_cond_wait()</h2><blockquote>
+        <p>##*pthread_cond_wait()</p>
+<blockquote>
 <p> 都必须和一个互斥锁配合，以防止多个线程同时请求pthread_cond_wait()<br>（或pthread_cond_timedwait()，下同）的竞争条件（Race   Condition）。<br>mutex互斥锁必须是普通锁（PTHREAD_MUTEX_TIMED_NP）或者适应锁（PTHREAD_MUTEX_ADAPTIVE_NP），<br>且在调用pthread_cond_wait()前必须由本线程加锁（pthread_mutex_lock()），<br>而在更新条件等待队列以前，mutex保持锁定状态，并在线程挂起进入等待前解锁。<br>在条件满足从而离开pthread_cond_wait()之前，mutex将被重新加锁，以与进入pthread_cond_wait()前的加锁动作对应。   </p>
 </blockquote>
 
