@@ -158,23 +158,20 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/26/first/">pthread_pool</a>
+      <a class="article-title" href="/2017/10/29/first/">pthread_pool</a>
     </h1>
   
 
         
-        <a href="/2017/10/26/first/" class="archive-article-date">
-  	<time datetime="2017-10-25T18:39:53.832Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-26</time>
+        <a href="/2017/10/29/first/" class="archive-article-date">
+  	<time datetime="2017-10-29T08:19:40.004Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-29</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#pthread_cond_wait()</p>
-<blockquote>
-<p>��������һ�����������ϣ��Է�ֹ�����߳�ͬʱ����pthread_cond_wait()<br>����pthread_cond_timedwait()����ͬ���ľ���������Race   Condition����<br>mutex��������������ͨ����PTHREAD_MUTEX_TIMED_NP��������Ӧ����PTHREAD_MUTEX_ADAPTIVE_NP����<br>���ڵ���pthread_cond_wait()ǰ�����ɱ��̼߳�����pthread_mutex_lock()����<br>���ڸ��������ȴ�������ǰ��mutex��������״̬�������̹߳��������ȴ�ǰ������<br>�����������Ӷ��뿪pthread_cond_wait()֮ǰ��mutex�������¼�������������pthread_cond_wait()ǰ�ļ���������Ӧ��   </p>
-</blockquote>
+        <p>#pthread_cond_wait()<br>都必须和一个互斥锁配合，以防止多个线程同时请求pthread_cond_wait()<br>（或pthread_cond_timedwait()，下同）的竞争条件（Race   Condition）。<br>mutex互斥锁必须是普通锁（PTHREAD_MUTEX_TIMED_NP）或者适应锁（PTHREAD_MUTEX_ADAPTIVE_NP），<br>且在调用pthread_cond_wait()前必须由本线程加锁（pthread_mutex_lock()），<br>而在更新条件等待队列以前，mutex保持锁定状态，并在线程挂起进入等待前解锁。<br>在条件满足从而离开pthread_cond_wait()之前，mutex将被重新加锁，以与进入pthread_cond_wait()前的加锁动作对应。   </p>
 
       
 
@@ -187,7 +184,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/26/first/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/10/29/first/">展开全文 >></a>
         </p>
       
 
