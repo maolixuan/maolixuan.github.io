@@ -171,8 +171,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##*pthread_cond_wait()</p>
-<blockquote>
+        <h2 id="pthread-cond-wait"><a href="#pthread-cond-wait" class="headerlink" title="@pthread_cond_wait()"></a>@pthread_cond_wait()</h2><blockquote>
 <p> 都必须和一个互斥锁配合，以防止多个线程同时请求pthread_cond_wait()<br>（或pthread_cond_timedwait()，下同）的竞争条件（Race   Condition）。<br>mutex互斥锁必须是普通锁（PTHREAD_MUTEX_TIMED_NP）或者适应锁（PTHREAD_MUTEX_ADAPTIVE_NP），<br>且在调用pthread_cond_wait()前必须由本线程加锁（pthread_mutex_lock()），<br>而在更新条件等待队列以前，mutex保持锁定状态，并在线程挂起进入等待前解锁。<br>在条件满足从而离开pthread_cond_wait()之前，mutex将被重新加锁，以与进入pthread_cond_wait()前的加锁动作对应。   </p>
 </blockquote>
 
