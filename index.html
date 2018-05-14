@@ -165,11 +165,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="hadoop集群两次格式化问题"><a href="#hadoop集群两次格式化问题" class="headerlink" title="@hadoop集群两次格式化问题"></a>@hadoop集群两次格式化问题</h2><p>在初次进行Hadoop集群启动时，我们都要对Hapoop集群进行一次初始化；</p>
+        <p>在初次进行Hadoop集群启动时，我们都要对Hapoop集群进行一次初始化；</p>
 <p><strong>但是，我们必须时刻谨记对Hadoop的格式化只能在刚配置好时，第一次启动时进行一次；</strong></p>
 <p>多次对Hadoop进行格式化会导致一些参数的错误，从而引起启动Hadoop时的错误。有两种修改的方式：</p>
-<p>###1，修改clusterID</p>
-<blockquote>
+<h3 id="1，修改clusterID"><a href="#1，修改clusterID" class="headerlink" title="1，修改clusterID"></a>1，修改clusterID</h3><blockquote>
 <ul>
 <li>分别进入master的data/current和name/current目录下，找到各自的VERSIN文件，进入其中一个文件修改里面的clusterID的值，使之和另外一个的值相同。如下：</li>
 </ul>
@@ -206,8 +205,7 @@
 <li>记住在此后不能在格式化Hadoop了</li>
 </ul>
 </blockquote>
-<p>###2，删除logs和tmp中的内容，再次格式化</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">cd /usr/local/soft/hadoop/</div><div class="line">ls</div></pre></td></tr></table></figure>
+<h3 id="2，删除logs和tmp中的内容，再次格式化"><a href="#2，删除logs和tmp中的内容，再次格式化" class="headerlink" title="2，删除logs和tmp中的内容，再次格式化"></a>2，删除logs和tmp中的内容，再次格式化</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">cd /usr/local/soft/hadoop/</div><div class="line">ls</div></pre></td></tr></table></figure>
 <p>得到<br>bin  include  libexec      logs        README.txt  share</p>
 <p>etc  lib      LICENSE.txt  NOTICE.txt  sbin        tmp</p>
 <p>将logs和tmp中的内容删除掉，用</p>
