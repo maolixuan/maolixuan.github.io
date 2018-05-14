@@ -148,10 +148,24 @@
     <article id="post-sec" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/14/sec/">hadoop集群两次格式化问题</a>
+    </h1>
+  
+
+        
+        <a href="/2018/05/14/sec/" class="archive-article-date">
+  	<time datetime="2018-05-14T15:48:42.013Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-14</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<h2 id="title-hadoop集群两次格式化问题"><a href="#title-hadoop集群两次格式化问题" class="headerlink" title="title:hadoop集群两次格式化问题"></a>title:hadoop集群两次格式化问题</h2><h2 id="hadoop集群两次格式化问题"><a href="#hadoop集群两次格式化问题" class="headerlink" title="@hadoop集群两次格式化问题"></a>@hadoop集群两次格式化问题</h2><p>在初次进行Hadoop集群启动时，我们都要对Hapoop集群进行一次初始化；</p>
+        <h2 id="hadoop集群两次格式化问题"><a href="#hadoop集群两次格式化问题" class="headerlink" title="@hadoop集群两次格式化问题"></a>@hadoop集群两次格式化问题</h2><p>在初次进行Hadoop集群启动时，我们都要对Hapoop集群进行一次初始化；</p>
 <p><strong>但是，我们必须时刻谨记对Hadoop的格式化只能在刚配置好时，第一次启动时进行一次；</strong></p>
 <p>多次对Hadoop进行格式化会导致一些参数的错误，从而引起启动Hadoop时的错误。有两种修改的方式：</p>
 <p>###1，修改clusterID</p>
