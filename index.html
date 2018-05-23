@@ -168,35 +168,9 @@
         <p>在初次进行Hadoop集群启动时，我们都要对Hapoop集群进行一次初始化；</p>
 <p><strong>但是，我们必须时刻谨记对Hadoop的格式化只能在刚配置好时，第一次启动时进行一次；</strong></p>
 <p>多次对Hadoop进行格式化会导致一些参数的错误，从而引起启动Hadoop时的错误。有两种修改的方式：</p>
-<h3 id="1，修改clusterID"><a href="#1，修改clusterID" class="headerlink" title="1，修改clusterID"></a>1，修改clusterID</h3><blockquote>
-<ul>
-<li>分别进入master的data/current和name/current目录下，找到各自的VERSIN文件，进入其中一个文件修改里面的clusterID的值，使之和另外一个的值相同。如下：</li>
-</ul>
-</blockquote>
-<p>1,先访问data中的VERSION</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd /usr/local/soft/hadoop/tmp/dfs/data/current</div><div class="line">ls</div></pre></td></tr></table></figure>
-<p>后得到<br>BP-1941529228-192.168.0.12-1525521937489<br>VERSION<br>BP-733821877-10.22.19.245-1525395334996<br>只需</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim VERSION</div></pre></td></tr></table></figure>
-<p>看到<br>storageID=DS-4dd8bde2-bc7a-4598-ac31-dc9af1a93f2c<br>clusterID=CID-c4096b30-e66a-4094-89a9-bf493271985e<br>cTime=0<br>datanodeUuid=b6b9c75c-030e-42a8-b07d-f214edc6d897<br>storageType=DATA_NODE<br>layoutVersion=-56<br>找到其中的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">clusterID=CID-c4096b30-e66a-4094-89a9-bf493271985e</div></pre></td></tr></table></figure>
-<p>2,访问name中的VERSION</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd /usr/local/soft/hadoop/tmp/dfs/name/current</div><div class="line">vim VERSION</div></pre></td></tr></table></figure>
-<p>得到<br>namespaceID=1550390684<br>clusterID=CID-34536b30-366a-4394-89a9-bf493271985e<br>cTime=0<br>storageType=NAME_NODE<br>blockpoolID=BP-1941529228-192.168.0.12-1525521937489<br>layoutVersion=-63</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">clusterID=CID-34536b30-366a-4394-89a9-bf493271985e</div></pre></td></tr></table></figure>
-<p>3,得到结果，</p>
-<p>1，和2，中的clusterID是不同的，修改其中一个与另外一个相同就可以了。</p>
-<blockquote>
-<ul>
-<li>记住在此后不能在格式化Hadoop了</li>
-</ul>
-</blockquote>
-<h3 id="2，删除logs和tmp中的内容，再次格式化"><a href="#2，删除logs和tmp中的内容，再次格式化" class="headerlink" title="2，删除logs和tmp中的内容，再次格式化"></a>2，删除logs和tmp中的内容，再次格式化</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd /usr/local/soft/hadoop/</div><div class="line">ls</div></pre></td></tr></table></figure>
-<p>得到<br>bin      include     libexec         logs           README.txt     share</p>
-<p>etc      lib         LICENSE.txt     NOTICE.txt     sbin           tmp</p>
-<p>将logs和tmp中的内容删除掉，用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rm -rf ...//...表示目录</div></pre></td></tr></table></figure>
-<p>重新格式化。</p>
-
+        
+          <a class="article-more-a" href="/2018/05/14/sec/#more">true >></a>
+        
       
 
       

@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>hadoop集群两次格式化问题 | Blog of catch_mao</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在初次进行Hadoop集群启动时，我们都要对Hapoop集群进行一次初始化； 但是，我们必须时刻谨记对Hadoop的格式化只能在刚配置好时，第一次启动时进行一次； 多次对Hadoop进行格式化会导致一些参数的错误，从而引起启动Hadoop时的错误。有两种修改的方式： 1，修改clusterID  分别进入master的data/current和name/current目录下，找到各自的VERSIN">
+  <meta name="description" content="在初次进行Hadoop集群启动时，我们都要对Hapoop集群进行一次初始化； 但是，我们必须时刻谨记对Hadoop的格式化只能在刚配置好时，第一次启动时进行一次； 多次对Hadoop进行格式化会导致一些参数的错误，从而引起启动Hadoop时的错误。有两种修改的方式：">
 <meta name="keywords" content="hadoop,问题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hadoop集群两次格式化问题">
 <meta property="og:url" content="http://yoursite.com/2018/05/14/sec/index.html">
 <meta property="og:site_name" content="Blog of catch_mao">
-<meta property="og:description" content="在初次进行Hadoop集群启动时，我们都要对Hapoop集群进行一次初始化； 但是，我们必须时刻谨记对Hadoop的格式化只能在刚配置好时，第一次启动时进行一次； 多次对Hadoop进行格式化会导致一些参数的错误，从而引起启动Hadoop时的错误。有两种修改的方式： 1，修改clusterID  分别进入master的data/current和name/current目录下，找到各自的VERSIN">
-<meta property="og:updated_time" content="2018-05-23T14:45:51.553Z">
+<meta property="og:description" content="在初次进行Hadoop集群启动时，我们都要对Hapoop集群进行一次初始化； 但是，我们必须时刻谨记对Hadoop的格式化只能在刚配置好时，第一次启动时进行一次； 多次对Hadoop进行格式化会导致一些参数的错误，从而引起启动Hadoop时的错误。有两种修改的方式：">
+<meta property="og:updated_time" content="2018-05-23T15:34:05.053Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hadoop集群两次格式化问题">
-<meta name="twitter:description" content="在初次进行Hadoop集群启动时，我们都要对Hapoop集群进行一次初始化； 但是，我们必须时刻谨记对Hadoop的格式化只能在刚配置好时，第一次启动时进行一次； 多次对Hadoop进行格式化会导致一些参数的错误，从而引起启动Hadoop时的错误。有两种修改的方式： 1，修改clusterID  分别进入master的data/current和name/current目录下，找到各自的VERSIN">
+<meta name="twitter:description" content="在初次进行Hadoop集群启动时，我们都要对Hapoop集群进行一次初始化； 但是，我们必须时刻谨记对Hadoop的格式化只能在刚配置好时，第一次启动时进行一次； 多次对Hadoop进行格式化会导致一些参数的错误，从而引起启动Hadoop时的错误。有两种修改的方式：">
   
     <link rel="alternative" href="/atom.xml" title="Blog of catch_mao" type="application/atom+xml">
   
@@ -171,6 +171,7 @@
         <p>在初次进行Hadoop集群启动时，我们都要对Hapoop集群进行一次初始化；</p>
 <p><strong>但是，我们必须时刻谨记对Hadoop的格式化只能在刚配置好时，第一次启动时进行一次；</strong></p>
 <p>多次对Hadoop进行格式化会导致一些参数的错误，从而引起启动Hadoop时的错误。有两种修改的方式：</p>
+<a id="more"></a>
 <h3 id="1，修改clusterID"><a href="#1，修改clusterID" class="headerlink" title="1，修改clusterID"></a>1，修改clusterID</h3><blockquote>
 <ul>
 <li>分别进入master的data/current和name/current目录下，找到各自的VERSIN文件，进入其中一个文件修改里面的clusterID的值，使之和另外一个的值相同。如下：</li>
