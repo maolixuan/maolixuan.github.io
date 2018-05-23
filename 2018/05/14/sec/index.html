@@ -8,16 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>hadoop集群两次格式化问题 | Blog of catch_mao</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="tags:  hadoop 问题  在初次进行Hadoop集群启动时，我们都要对Hapoop集群进行一次初始化； 但是，我们必须时刻谨记对Hadoop的格式化只能在刚配置好时，第一次启动时进行一次； 多次对Hadoop进行格式化会导致一些参数的错误，从而引起启动Hadoop时的错误。有两种修改的方式： 1，修改clusterID  分别进入master的data/current和name/curr">
+  <meta name="description" content="在初次进行Hadoop集群启动时，我们都要对Hapoop集群进行一次初始化； 但是，我们必须时刻谨记对Hadoop的格式化只能在刚配置好时，第一次启动时进行一次； 多次对Hadoop进行格式化会导致一些参数的错误，从而引起启动Hadoop时的错误。有两种修改的方式： 1，修改clusterID  分别进入master的data/current和name/current目录下，找到各自的VERSIN">
+<meta name="keywords" content="hadoop,问题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hadoop集群两次格式化问题">
 <meta property="og:url" content="http://yoursite.com/2018/05/14/sec/index.html">
 <meta property="og:site_name" content="Blog of catch_mao">
-<meta property="og:description" content="tags:  hadoop 问题  在初次进行Hadoop集群启动时，我们都要对Hapoop集群进行一次初始化； 但是，我们必须时刻谨记对Hadoop的格式化只能在刚配置好时，第一次启动时进行一次； 多次对Hadoop进行格式化会导致一些参数的错误，从而引起启动Hadoop时的错误。有两种修改的方式： 1，修改clusterID  分别进入master的data/current和name/curr">
-<meta property="og:updated_time" content="2018-05-23T14:40:22.541Z">
+<meta property="og:description" content="在初次进行Hadoop集群启动时，我们都要对Hapoop集群进行一次初始化； 但是，我们必须时刻谨记对Hadoop的格式化只能在刚配置好时，第一次启动时进行一次； 多次对Hadoop进行格式化会导致一些参数的错误，从而引起启动Hadoop时的错误。有两种修改的方式： 1，修改clusterID  分别进入master的data/current和name/current目录下，找到各自的VERSIN">
+<meta property="og:updated_time" content="2018-05-23T14:45:51.553Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hadoop集群两次格式化问题">
-<meta name="twitter:description" content="tags:  hadoop 问题  在初次进行Hadoop集群启动时，我们都要对Hapoop集群进行一次初始化； 但是，我们必须时刻谨记对Hadoop的格式化只能在刚配置好时，第一次启动时进行一次； 多次对Hadoop进行格式化会导致一些参数的错误，从而引起启动Hadoop时的错误。有两种修改的方式： 1，修改clusterID  分别进入master的data/current和name/curr">
+<meta name="twitter:description" content="在初次进行Hadoop集群启动时，我们都要对Hapoop集群进行一次初始化； 但是，我们必须时刻谨记对Hadoop的格式化只能在刚配置好时，第一次启动时进行一次； 多次对Hadoop进行格式化会导致一些参数的错误，从而引起启动Hadoop时的错误。有两种修改的方式： 1，修改clusterID  分别进入master的data/current和name/current目录下，找到各自的VERSIN">
   
     <link rel="alternative" href="/atom.xml" title="Blog of catch_mao" type="application/atom+xml">
   
@@ -167,12 +168,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>tags:</p>
-<ul>
-<li>hadoop</li>
-<li>问题</li>
-</ul>
-<p>在初次进行Hadoop集群启动时，我们都要对Hapoop集群进行一次初始化；</p>
+        <p>在初次进行Hadoop集群启动时，我们都要对Hapoop集群进行一次初始化；</p>
 <p><strong>但是，我们必须时刻谨记对Hadoop的格式化只能在刚配置好时，第一次启动时进行一次；</strong></p>
 <p>多次对Hadoop进行格式化会导致一些参数的错误，从而引起启动Hadoop时的错误。有两种修改的方式：</p>
 <h3 id="1，修改clusterID"><a href="#1，修改clusterID" class="headerlink" title="1，修改clusterID"></a>1，修改clusterID</h3><blockquote>
@@ -232,6 +228,21 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">hadoop</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">问题</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -435,6 +446,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">问题</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
