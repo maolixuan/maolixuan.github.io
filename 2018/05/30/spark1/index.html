@@ -8,17 +8,19 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>spark复习 | Blog of catch_mao</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="导论、spark是什么 Spark 是一个用来实现快速而通用的集群计算的平台。 扩展了MapReduce的计算模型。 一个特点是：能够在内存中进行计算，因而更快。 可以处理：批处理、迭代算法 、交互式查询、流处理。">
+  <meta name="description" content="导论、spark是什么 Spark 是一个用来实现快速而通用的集群计算的平台。 扩展了MapReduce的计算模型。 一个特点是：能够在内存中进行计算，因而更快。 可以处理：批处理、迭代算法 、交互式查询、流处理。 所提供的接口十分丰富：处了Python、Java、Scala和SQL。 spark还可以运行在Hadoop集群上。  spark核心组件spark核心是一个对由很多计算任务组成的、运行">
 <meta name="keywords" content="spark,大数据,复习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="spark复习">
 <meta property="og:url" content="http://yoursite.com/2018/05/30/spark1/index.html">
 <meta property="og:site_name" content="Blog of catch_mao">
-<meta property="og:description" content="导论、spark是什么 Spark 是一个用来实现快速而通用的集群计算的平台。 扩展了MapReduce的计算模型。 一个特点是：能够在内存中进行计算，因而更快。 可以处理：批处理、迭代算法 、交互式查询、流处理。">
-<meta property="og:updated_time" content="2018-05-30T15:19:46.948Z">
+<meta property="og:description" content="导论、spark是什么 Spark 是一个用来实现快速而通用的集群计算的平台。 扩展了MapReduce的计算模型。 一个特点是：能够在内存中进行计算，因而更快。 可以处理：批处理、迭代算法 、交互式查询、流处理。 所提供的接口十分丰富：处了Python、Java、Scala和SQL。 spark还可以运行在Hadoop集群上。  spark核心组件spark核心是一个对由很多计算任务组成的、运行">
+<meta property="og:image" content="https://github.com/maolixuan/mybox/raw/master/spark1.png">
+<meta property="og:updated_time" content="2018-05-31T13:35:23.121Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="spark复习">
-<meta name="twitter:description" content="导论、spark是什么 Spark 是一个用来实现快速而通用的集群计算的平台。 扩展了MapReduce的计算模型。 一个特点是：能够在内存中进行计算，因而更快。 可以处理：批处理、迭代算法 、交互式查询、流处理。">
+<meta name="twitter:description" content="导论、spark是什么 Spark 是一个用来实现快速而通用的集群计算的平台。 扩展了MapReduce的计算模型。 一个特点是：能够在内存中进行计算，因而更快。 可以处理：批处理、迭代算法 、交互式查询、流处理。 所提供的接口十分丰富：处了Python、Java、Scala和SQL。 spark还可以运行在Hadoop集群上。  spark核心组件spark核心是一个对由很多计算任务组成的、运行">
+<meta name="twitter:image" content="https://github.com/maolixuan/mybox/raw/master/spark1.png">
   
     <link rel="alternative" href="/atom.xml" title="Blog of catch_mao" type="application/atom+xml">
   
@@ -173,6 +175,25 @@
 <li>扩展了MapReduce的计算模型。</li>
 <li>一个特点是：能够在内存中进行计算，因而更快。</li>
 <li>可以处理：批处理、迭代算法 、交互式查询、流处理。</li>
+<li>所提供的接口十分丰富：处了Python、Java、Scala和SQL。</li>
+<li>spark还可以运行在Hadoop集群上。</li>
+</ul>
+<h2 id="spark核心组件"><a href="#spark核心组件" class="headerlink" title="spark核心组件"></a>spark核心组件</h2><p>spark核心是一个对由很多计算任务组成的、运行<br>在多个工作机器或者是一个计算集群上的应用进行调度、分发以及监控的计算引擎。</p>
+<ul>
+<li>支持机器学习和SQL</li>
+<li>运行和维护代价变小了<ul>
+<li>不需5—10个独立的软件系统</li>
+<li>只需运行一个软件系统</li>
+<li>spark软件栈中增加一个组件时，使用spark的机构能马上使用</li>
+<li>减少了尝试一种新的数据分析系统所需要的下载、部署</li>
+</ul>
+</li>
+<li>一大优点：能够构建出无缝整合不同处理模型的应，<ul>
+<li>如：在数据流中的数据使用机器学习算法进行实时分类</li>
+<li>数据分析师也可以通过SQL 实时查询结果数据</li>
+</ul>
+</li>
+<li>spark各个组件如下图<br><img src="https://github.com/maolixuan/mybox/raw/master/spark1.png" alt="Aaron Swartz"></li>
 </ul>
 
       
@@ -315,7 +336,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#导论、"><span class="toc-number">1.</span> <span class="toc-text">导论、</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#spark是什么"><span class="toc-number">1.1.</span> <span class="toc-text">spark是什么</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#导论、"><span class="toc-number">1.</span> <span class="toc-text">导论、</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#spark是什么"><span class="toc-number">1.1.</span> <span class="toc-text">spark是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#spark核心组件"><span class="toc-number">1.2.</span> <span class="toc-text">spark核心组件</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
