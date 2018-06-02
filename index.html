@@ -188,7 +188,12 @@
 <li>client将文件划分为多个Block,根据DataNode的地址信息，按顺序写入每一个DataNode。</li>
 </ol>
 </li>
-<li>在HDFS中复制文件块的基本流程如下：</li>
+<li>在HDFS中复制文件块的基本流程如下：<ul>
+<li>NameNode发现部分文件的Block不符合最小复制数或者部分DataNode失效。</li>
+<li>通知DataNode相互复制block，</li>
+<li>DataNode开始相互复制。</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
