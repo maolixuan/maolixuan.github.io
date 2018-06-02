@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/06/02/hadoop1/index.html">
 <meta property="og:site_name" content="Blog of catch_mao">
 <meta property="og:description" content="Hadoop简介 Hadoop最初是Google集群系统的一个Java开源实现，是一个项目的总称， 主要是由HDFS、MapReduce组成。 HDFS–是Google File System（GFS）的开源实现。 MapReduce–是一种并行计算的框架，基于写出的程序能够运行在由成百上千商用机器组成的大型集群上。  Hadoop设计思路及架构 Hadoop最初的基本需求就是为了处理海量的数据，">
-<meta property="og:updated_time" content="2018-06-02T12:34:21.302Z">
+<meta property="og:updated_time" content="2018-06-02T12:46:46.485Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hadoop基础">
 <meta name="twitter:description" content="Hadoop简介 Hadoop最初是Google集群系统的一个Java开源实现，是一个项目的总称， 主要是由HDFS、MapReduce组成。 HDFS–是Google File System（GFS）的开源实现。 MapReduce–是一种并行计算的框架，基于写出的程序能够运行在由成百上千商用机器组成的大型集群上。  Hadoop设计思路及架构 Hadoop最初的基本需求就是为了处理海量的数据，">
@@ -185,10 +185,13 @@
 <li>三个重要的角色：名称节点（NameNode）、数据节点（DataNode）、客户端。</li>
 </ul>
 </li>
-<li>文件写入HDFS的基本流程：<ul>
-<li></li>
-</ul>
+<li>文件写入HDFS的基本流程：<ol>
+<li>client向NameNode发起文件写入请求。</li>
+<li>NameNode根据文件大小和文件的配置情况，向client返回它所管理的DataNode的信息。</li>
+<li>client将文件划分为多个Block,根据DataNode的地址信息，按顺序写入每一个DataNode。</li>
+</ol>
 </li>
+<li>在HDFS中复制文件块的基本流程如下：</li>
 </ul>
 </li>
 </ul>

@@ -182,10 +182,13 @@
 <li>三个重要的角色：名称节点（NameNode）、数据节点（DataNode）、客户端。</li>
 </ul>
 </li>
-<li>文件写入HDFS的基本流程：<ul>
-<li></li>
-</ul>
+<li>文件写入HDFS的基本流程：<ol>
+<li>client向NameNode发起文件写入请求。</li>
+<li>NameNode根据文件大小和文件的配置情况，向client返回它所管理的DataNode的信息。</li>
+<li>client将文件划分为多个Block,根据DataNode的地址信息，按顺序写入每一个DataNode。</li>
+</ol>
 </li>
+<li>在HDFS中复制文件块的基本流程如下：</li>
 </ul>
 </li>
 </ul>
