@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | Blog of catch_mao</title>
+  <title>MapReduce单词计数 | Blog of catch_mao</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Blog of catch_mao">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="Map-Reduce之单词计数单词计数是Hadoop的一个简单的应用，它可以计算指定文本的中的每一个单词的数量。实现了对Map和Reduce的简单应用  1.所需的包：  123456789101112import java.io.IOException;import java.util.StringTokenizer;import org.apache.hadoop.conf.Configura">
+<meta name="keywords" content="hadoop,大数据,Map,Reduce">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MapReduce单词计数">
+<meta property="og:url" content="http://yoursite.com/2018/06/03/MapReduce/index.html">
 <meta property="og:site_name" content="Blog of catch_mao">
+<meta property="og:description" content="Map-Reduce之单词计数单词计数是Hadoop的一个简单的应用，它可以计算指定文本的中的每一个单词的数量。实现了对Map和Reduce的简单应用  1.所需的包：  123456789101112import java.io.IOException;import java.util.StringTokenizer;import org.apache.hadoop.conf.Configura">
+<meta property="og:updated_time" content="2018-06-03T05:47:47.644Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Blog of catch_mao">
+<meta name="twitter:title" content="MapReduce单词计数">
+<meta name="twitter:description" content="Map-Reduce之单词计数单词计数是Hadoop的一个简单的应用，它可以计算指定文本的中的每一个单词的数量。实现了对Map和Reduce的简单应用  1.所需的包：  123456789101112import java.io.IOException;import java.util.StringTokenizer;import org.apache.hadoop.conf.Configura">
   
     <link rel="alternative" href="/atom.xml" title="Blog of catch_mao" type="application/atom+xml">
   
@@ -143,36 +148,77 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-MapReduce" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/03/MapReduce/" class="archive-article-date">
-  	<time datetime="2018-06-03T03:42:03.361Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-03</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/03/MapReduce/">MapReduce单词计数</a>
+    <h1 class="article-title" itemprop="name">
+      MapReduce单词计数
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/06/03/MapReduce/" class="archive-article-date">
+  	<time datetime="2018-06-03T03:42:03.361Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-03</time>
+</a>
+        
+		
+		<span class="archive-article-date">
+			阅读量 <span id="busuanzi_value_page_pv"></span>
+		</span>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+	  
+      
+        <h3 id="Map-Reduce之单词计数"><a href="#Map-Reduce之单词计数" class="headerlink" title="Map-Reduce之单词计数"></a>Map-Reduce之单词计数</h3><p>单词计数是Hadoop的一个简单的应用，它可以计算指定文本的中的每一个单词的数量。<br>实现了对Map和Reduce的简单应用</p>
+<blockquote>
+<p>1.所需的包：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">import java.io.IOException;</div><div class="line">import java.util.StringTokenizer;</div><div class="line">import org.apache.hadoop.conf.Configuration;</div><div class="line">import org.apache.hadoop.fs.Path;</div><div class="line">import org.apache.hadoop.io.IntWritable;</div><div class="line">import org.apache.hadoop.io.Text;</div><div class="line">import org.apache.hadoop.mapreduce.Job;</div><div class="line">import org.apache.hadoop.mapreduce.Mapper;</div><div class="line">import org.apache.hadoop.mapreduce.Reducer;</div><div class="line">import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;</div><div class="line">import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;</div><div class="line">import org.apache.hadoop.util.GenericOptionsParser;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>2.实现Map类：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">public static class TokenizerMapper </div><div class="line">       extends Mapper&lt;Object, Text, Text, IntWritable&gt;&#123;</div><div class="line">    private final static IntWritable one = new IntWritable(1);</div><div class="line">    private Text word = new Text();</div><div class="line">    public void map(Object key, Text value, Context context</div><div class="line">                    ) throws IOException, InterruptedException &#123;</div><div class="line">      StringTokenizer itr = new StringTokenizer(value.toString());</div><div class="line">      while (itr.hasMoreTokens()) &#123;</div><div class="line">        word.set(itr.nextToken().length());</div><div class="line">        context.write(word, one);</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>3.实现Reduce类：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">public static class IntSumReducer </div><div class="line">       extends Reducer&lt;Text,IntWritable,Text,IntWritable&gt; &#123;</div><div class="line">    private IntWritable result = new IntWritable();</div><div class="line">    public void reduce(Text key, Iterable&lt;IntWritable&gt; values, </div><div class="line">                       Context context</div><div class="line">                       ) throws IOException, InterruptedException &#123;</div><div class="line">      int sum = 0;</div><div class="line">      for (IntWritable val : values) &#123;</div><div class="line">        sum += val.get();</div><div class="line">      &#125;</div><div class="line">      result.set(sum);</div><div class="line">      context.write(key, result);</div><div class="line">    &#125;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>4.实现main函数</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">public static void main(String[] args) throws Exception &#123;</div><div class="line">    Configuration conf = new Configuration();</div><div class="line">    String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();</div><div class="line">    if (otherArgs.length &lt; 2) &#123;</div><div class="line">      System.err.println(&quot;Usage: wordcount &lt;in&gt; [&lt;in&gt;...] &lt;out&gt;&quot;);</div><div class="line">      System.exit(2);</div><div class="line">    &#125;</div><div class="line">    Job job = Job.getInstance(conf, &quot;word count&quot;);</div><div class="line">    job.setJarByClass(WordCount.class);</div><div class="line">    job.setMapperClass(TokenizerMapper.class);</div><div class="line">    job.setCombinerClass(IntSumReducer.class);</div><div class="line">    job.setReducerClass(IntSumReducer.class);</div><div class="line">    job.setOutputKeyClass(Text.class);</div><div class="line">    job.setOutputValueClass(IntWritable.class);</div><div class="line">    for (int i = 0; i &lt; otherArgs.length - 1; ++i) &#123;</div><div class="line">      FileInputFormat.addInputPath(job, new Path(otherArgs[i]));</div><div class="line">    &#125;</div><div class="line">    FileOutputFormat.setOutputPath(job,</div><div class="line">      new Path(otherArgs[otherArgs.length - 1]));</div><div class="line">    System.exit(job.waitForCompletion(true) ? 0 : 1);</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -196,217 +242,119 @@
 		</ul>
 	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/02/hadoop1/" class="archive-article-date">
-  	<time datetime="2018-06-02T11:34:05.737Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/02/hadoop1/">hadoop基础</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">hadoop</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">复习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/30/spark1/" class="archive-article-date">
-  	<time datetime="2018-05-30T14:35:33.155Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/30/spark1/">spark复习</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">复习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">spark</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/14/sec/" class="archive-article-date">
-  	<time datetime="2018-05-14T15:48:42.013Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/14/sec/">hadoop集群两次格式化问题</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">hadoop</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">问题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
       
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/29/first/" class="archive-article-date">
-  	<time datetime="2017-10-29T08:19:40.004Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/29/first/">pthread_pool</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/06/03/MapReduce/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/26/hello-world/" class="archive-article-date">
-  	<time datetime="2017-10-25T17:05:36.931Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-26</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/06/02/hadoop1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">hadoop基础</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/26/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Map-Reduce之单词计数"><span class="toc-number">1.</span> <span class="toc-text">Map-Reduce之单词计数</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -434,8 +382,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
