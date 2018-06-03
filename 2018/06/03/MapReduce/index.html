@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>MapReduce单词计数 | Blog of catch_mao</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Map-Reduce之单词计数单词计数是Hadoop的一个简单的应用，它可以计算指定文本的中的每一个单词的数量。实现了对Map和Reduce的简单应用  1.所需的包：  123456789101112import java.io.IOException;import java.util.StringTokenizer;import org.apache.hadoop.conf.Configura">
+  <meta name="description" content="Map-Reduce之单词计数单词计数是Hadoop的一个简单的应用，它可以计算指定文本的中的每一个单词的数量。实现了对Map和Reduce的简单应用，具体的步骤就是：  Map函数实现对键值对的建立。 Reduce实现对相同的键值的value值进行相加。">
 <meta name="keywords" content="hadoop,大数据,Map,Reduce">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MapReduce单词计数">
 <meta property="og:url" content="http://yoursite.com/2018/06/03/MapReduce/index.html">
 <meta property="og:site_name" content="Blog of catch_mao">
-<meta property="og:description" content="Map-Reduce之单词计数单词计数是Hadoop的一个简单的应用，它可以计算指定文本的中的每一个单词的数量。实现了对Map和Reduce的简单应用  1.所需的包：  123456789101112import java.io.IOException;import java.util.StringTokenizer;import org.apache.hadoop.conf.Configura">
-<meta property="og:updated_time" content="2018-06-03T05:47:47.644Z">
+<meta property="og:description" content="Map-Reduce之单词计数单词计数是Hadoop的一个简单的应用，它可以计算指定文本的中的每一个单词的数量。实现了对Map和Reduce的简单应用，具体的步骤就是：  Map函数实现对键值对的建立。 Reduce实现对相同的键值的value值进行相加。">
+<meta property="og:updated_time" content="2018-06-03T06:13:41.027Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MapReduce单词计数">
-<meta name="twitter:description" content="Map-Reduce之单词计数单词计数是Hadoop的一个简单的应用，它可以计算指定文本的中的每一个单词的数量。实现了对Map和Reduce的简单应用  1.所需的包：  123456789101112import java.io.IOException;import java.util.StringTokenizer;import org.apache.hadoop.conf.Configura">
+<meta name="twitter:description" content="Map-Reduce之单词计数单词计数是Hadoop的一个简单的应用，它可以计算指定文本的中的每一个单词的数量。实现了对Map和Reduce的简单应用，具体的步骤就是：  Map函数实现对键值对的建立。 Reduce实现对相同的键值的value值进行相加。">
   
     <link rel="alternative" href="/atom.xml" title="Blog of catch_mao" type="application/atom+xml">
   
@@ -174,7 +174,12 @@
     <div class="article-entry" itemprop="articleBody">
 	  
       
-        <h3 id="Map-Reduce之单词计数"><a href="#Map-Reduce之单词计数" class="headerlink" title="Map-Reduce之单词计数"></a>Map-Reduce之单词计数</h3><p>单词计数是Hadoop的一个简单的应用，它可以计算指定文本的中的每一个单词的数量。<br>实现了对Map和Reduce的简单应用</p>
+        <h3 id="Map-Reduce之单词计数"><a href="#Map-Reduce之单词计数" class="headerlink" title="Map-Reduce之单词计数"></a>Map-Reduce之单词计数</h3><p>单词计数是Hadoop的一个简单的应用，它可以计算指定文本的中的每一个单词的数量。<br>实现了对Map和Reduce的简单应用，<br>具体的步骤就是：</p>
+<ul>
+<li>Map函数实现对键值对的建立。</li>
+<li>Reduce实现对相同的键值的value值进行相加。</li>
+</ul>
+<a id="more"></a>
 <blockquote>
 <p>1.所需的包：</p>
 </blockquote>
@@ -182,6 +187,14 @@
 <blockquote>
 <p>2.实现Map类：</p>
 </blockquote>
+<ul>
+<li>你自己的Map函数首先要继承Hadoop的Mapper类，再去实现其中的map方法。<br>*org.apache.hadoop.io.Text：该类使用标准的UTF8编码存储文本。<ul>
+<li>它提供了在字节级别序列化，反序列化和比较文本的方法。长度类型是整数，并使用零压缩格式进行序列化。</li>
+<li>序列化：将结构化对象转为字节流以便于通过网络进行传输或写入持久存储的过程。</li>
+<li>反序列化：将字节流转为一系列结构化对象的过程。</li>
+</ul>
+</li>
+</ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">public static class TokenizerMapper </div><div class="line">       extends Mapper&lt;Object, Text, Text, IntWritable&gt;&#123;</div><div class="line">    private final static IntWritable one = new IntWritable(1);</div><div class="line">    private Text word = new Text();</div><div class="line">    public void map(Object key, Text value, Context context</div><div class="line">                    ) throws IOException, InterruptedException &#123;</div><div class="line">      StringTokenizer itr = new StringTokenizer(value.toString());</div><div class="line">      while (itr.hasMoreTokens()) &#123;</div><div class="line">        word.set(itr.nextToken().length());</div><div class="line">        context.write(word, one);</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
 <blockquote>
 <p>3.实现Reduce类：</p>
