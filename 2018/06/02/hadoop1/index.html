@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/06/02/hadoop1/index.html">
 <meta property="og:site_name" content="Blog of catch_mao">
 <meta property="og:description" content="Hadoop简介 Hadoop最初是Google集群系统的一个Java开源实现，是一个项目的总称， 主要是由HDFS、MapReduce组成。 HDFS–是Google File System（GFS）的开源实现。 MapReduce–是一种并行计算的框架，基于写出的程序能够运行在由成百上千商用机器组成的大型集群上。">
-<meta property="og:updated_time" content="2018-06-04T07:01:54.345Z">
+<meta property="og:updated_time" content="2018-06-04T07:03:33.863Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hadoop基础">
 <meta name="twitter:description" content="Hadoop简介 Hadoop最初是Google集群系统的一个Java开源实现，是一个项目的总称， 主要是由HDFS、MapReduce组成。 HDFS–是Google File System（GFS）的开源实现。 MapReduce–是一种并行计算的框架，基于写出的程序能够运行在由成百上千商用机器组成的大型集群上。">
@@ -213,7 +213,7 @@
 <p>*HDFS的数据组织</p>
 <pre><code>* 数据块：HDFS应用于处理大数据的场景，是一次写入多次读取，并且读取的速度要满足流式读，典型的block的大下是64MB，因此文件大小按照block的大小切分。
 * Staging：客户端创建文件的请求并没有立即发送给NameNode，而是先缓存在客户端的一个本地临时文件中。当临时文件积累的数据值超过一个block的大小是，客户端才会联系NameNode。NameNode将文件名插入到文件系统的层次结构中，并分配数据块给它，返回DataNode的标识符合自身的数据块给客户端。客户端将本地文件flush到DataNode上。当文件要关闭时，将临时文件中的没有上传的数据也会传输到指定的DataNode，然后NameNode文件已关闭。
-* 流水线式的复制：当向HDFS写入时，假设该文件的repication因子是3，会从NameNode获取一张DataNode表来放副本。先向第一个DataNode 4k的传输，将每个部分写入本地仓库，同时传输**该部分**第二个DataNode》第二个也是这样的操作边收边传。第三个仅仅接受和存储。这就是流水线式复制。3
+* 流水线式的复制：当向HDFS写入时，假设该文件的repication因子是3，会从NameNode获取一张DataNode表来放副本。先向第一个DataNode 4k的传输，将每个部分写入本地仓库，同时传输**该部分**第二个DataNode也是这样的操作边收边传。第三个仅仅接受和存储。这就是流水线式复制。
 </code></pre></blockquote>
 
       
