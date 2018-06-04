@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>hadoop基础 | Blog of catch_mao</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Hadoop简介 Hadoop最初是Google集群系统的一个Java开源实现，是一个项目的总称， 主要是由HDFS、MapReduce组成。 HDFS–是Google File System（GFS）的开源实现。 MapReduce–是一种并行计算的框架，基于写出的程序能够运行在由成百上千商用机器组成的大型集群上。  Hadoop设计思路及架构 Hadoop最初的基本需求就是为了处理海量的数据，">
+  <meta name="description" content="Hadoop简介 Hadoop最初是Google集群系统的一个Java开源实现，是一个项目的总称， 主要是由HDFS、MapReduce组成。 HDFS–是Google File System（GFS）的开源实现。 MapReduce–是一种并行计算的框架，基于写出的程序能够运行在由成百上千商用机器组成的大型集群上。">
 <meta name="keywords" content="hadoop,大数据,复习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hadoop基础">
 <meta property="og:url" content="http://yoursite.com/2018/06/02/hadoop1/index.html">
 <meta property="og:site_name" content="Blog of catch_mao">
-<meta property="og:description" content="Hadoop简介 Hadoop最初是Google集群系统的一个Java开源实现，是一个项目的总称， 主要是由HDFS、MapReduce组成。 HDFS–是Google File System（GFS）的开源实现。 MapReduce–是一种并行计算的框架，基于写出的程序能够运行在由成百上千商用机器组成的大型集群上。  Hadoop设计思路及架构 Hadoop最初的基本需求就是为了处理海量的数据，">
-<meta property="og:updated_time" content="2018-06-03T03:44:02.809Z">
+<meta property="og:description" content="Hadoop简介 Hadoop最初是Google集群系统的一个Java开源实现，是一个项目的总称， 主要是由HDFS、MapReduce组成。 HDFS–是Google File System（GFS）的开源实现。 MapReduce–是一种并行计算的框架，基于写出的程序能够运行在由成百上千商用机器组成的大型集群上。">
+<meta property="og:updated_time" content="2018-06-04T07:01:54.345Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hadoop基础">
-<meta name="twitter:description" content="Hadoop简介 Hadoop最初是Google集群系统的一个Java开源实现，是一个项目的总称， 主要是由HDFS、MapReduce组成。 HDFS–是Google File System（GFS）的开源实现。 MapReduce–是一种并行计算的框架，基于写出的程序能够运行在由成百上千商用机器组成的大型集群上。  Hadoop设计思路及架构 Hadoop最初的基本需求就是为了处理海量的数据，">
+<meta name="twitter:description" content="Hadoop简介 Hadoop最初是Google集群系统的一个Java开源实现，是一个项目的总称， 主要是由HDFS、MapReduce组成。 HDFS–是Google File System（GFS）的开源实现。 MapReduce–是一种并行计算的框架，基于写出的程序能够运行在由成百上千商用机器组成的大型集群上。">
   
     <link rel="alternative" href="/atom.xml" title="Blog of catch_mao" type="application/atom+xml">
   
@@ -180,9 +180,13 @@
 <li>HDFS–是Google File System（GFS）的开源实现。</li>
 <li>MapReduce–是一种并行计算的框架，基于写出的程序能够运行在由成百上千商用机器组成的大型集群上。</li>
 </ul>
+<a id="more"></a>
 <h3 id="Hadoop设计思路及架构"><a href="#Hadoop设计思路及架构" class="headerlink" title="Hadoop设计思路及架构"></a>Hadoop设计思路及架构</h3><ul>
 <li>Hadoop最初的基本需求就是为了处理海量的数据，主要原因是单机无法完成海量数据的存储和计算，设计一个超级计算机几乎是不可能的事。</li>
 <li>正如荀子所说“骐骥一跃，不能十步；驽马十驾，功在不舍”，再超级的计算机也很难一下子处理海量的数据，所以要分而治之。</li>
+</ul>
+<blockquote>
+<ul>
 <li>HDFS负责存储：<ul>
 <li>基本特征：<ul>
 <li>对于整个集群有单一得命名空间</li>
@@ -206,6 +210,11 @@
 </ul>
 </li>
 </ul>
+<p>*HDFS的数据组织</p>
+<pre><code>* 数据块：HDFS应用于处理大数据的场景，是一次写入多次读取，并且读取的速度要满足流式读，典型的block的大下是64MB，因此文件大小按照block的大小切分。
+* Staging：客户端创建文件的请求并没有立即发送给NameNode，而是先缓存在客户端的一个本地临时文件中。当临时文件积累的数据值超过一个block的大小是，客户端才会联系NameNode。NameNode将文件名插入到文件系统的层次结构中，并分配数据块给它，返回DataNode的标识符合自身的数据块给客户端。客户端将本地文件flush到DataNode上。当文件要关闭时，将临时文件中的没有上传的数据也会传输到指定的DataNode，然后NameNode文件已关闭。
+* 流水线式的复制：当向HDFS写入时，假设该文件的repication因子是3，会从NameNode获取一张DataNode表来放副本。先向第一个DataNode 4k的传输，将每个部分写入本地仓库，同时传输**该部分**第二个DataNode》第二个也是这样的操作边收边传。第三个仅仅接受和存储。这就是流水线式复制。3
+</code></pre></blockquote>
 
       
 
