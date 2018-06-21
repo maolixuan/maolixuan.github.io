@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>软件设计模式 | Blog of catch_mao</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="策略模式 设计原则1：找出需要设计的类中的在不断变化的部分，将之提出来，不要与那些不需要变化的混合在一起。 设计原则2：提出的变化的部分，设计接口，针对接口编程，而不是针对实现的编程。 设计原则3：少用继承，多用组合。 将算法族封装成类; 使得在运行时动态的改变行为成为可能。   使用场景： 有很多的类，具有不同的行为 算法具有很多变种 算法使用的数据无需客户知晓 对很多行为有很多的if-else">
+  <meta name="description" content="策略模式 设计原则1：找出需要设计的类中的在不断变化的部分，将之提出来，不要与那些不需要变化的混合在一起。 设计原则2：提出的变化的部分，设计接口，针对接口编程，而不是针对实现的编程。 设计原则3：少用继承，多用组合。 将算法族封装成类; 使得在运行时动态的改变行为成为可能。   使用场景：  有很多的类，具有不同的行为 算法具有很多变种 算法使用的数据无需客户知晓 对很多行为有很多的if-els">
 <meta name="keywords" content="-12种模式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="软件设计模式">
 <meta property="og:url" content="http://yoursite.com/2018/06/20/softwareDesign/index.html">
 <meta property="og:site_name" content="Blog of catch_mao">
-<meta property="og:description" content="策略模式 设计原则1：找出需要设计的类中的在不断变化的部分，将之提出来，不要与那些不需要变化的混合在一起。 设计原则2：提出的变化的部分，设计接口，针对接口编程，而不是针对实现的编程。 设计原则3：少用继承，多用组合。 将算法族封装成类; 使得在运行时动态的改变行为成为可能。   使用场景： 有很多的类，具有不同的行为 算法具有很多变种 算法使用的数据无需客户知晓 对很多行为有很多的if-else">
-<meta property="og:updated_time" content="2018-06-21T11:45:50.439Z">
+<meta property="og:description" content="策略模式 设计原则1：找出需要设计的类中的在不断变化的部分，将之提出来，不要与那些不需要变化的混合在一起。 设计原则2：提出的变化的部分，设计接口，针对接口编程，而不是针对实现的编程。 设计原则3：少用继承，多用组合。 将算法族封装成类; 使得在运行时动态的改变行为成为可能。   使用场景：  有很多的类，具有不同的行为 算法具有很多变种 算法使用的数据无需客户知晓 对很多行为有很多的if-els">
+<meta property="og:updated_time" content="2018-06-21T11:47:57.014Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="软件设计模式">
-<meta name="twitter:description" content="策略模式 设计原则1：找出需要设计的类中的在不断变化的部分，将之提出来，不要与那些不需要变化的混合在一起。 设计原则2：提出的变化的部分，设计接口，针对接口编程，而不是针对实现的编程。 设计原则3：少用继承，多用组合。 将算法族封装成类; 使得在运行时动态的改变行为成为可能。   使用场景： 有很多的类，具有不同的行为 算法具有很多变种 算法使用的数据无需客户知晓 对很多行为有很多的if-else">
+<meta name="twitter:description" content="策略模式 设计原则1：找出需要设计的类中的在不断变化的部分，将之提出来，不要与那些不需要变化的混合在一起。 设计原则2：提出的变化的部分，设计接口，针对接口编程，而不是针对实现的编程。 设计原则3：少用继承，多用组合。 将算法族封装成类; 使得在运行时动态的改变行为成为可能。   使用场景：  有很多的类，具有不同的行为 算法具有很多变种 算法使用的数据无需客户知晓 对很多行为有很多的if-els">
   
     <link rel="alternative" href="/atom.xml" title="Blog of catch_mao" type="application/atom+xml">
   
@@ -182,14 +182,17 @@
 <li>使得在运行时动态的改变行为成为可能。</li>
 </ul>
 </li>
-<li>使用场景：<ul>
+<li><p>使用场景：</p>
+<ul>
 <li>有很多的类，具有不同的行为</li>
 <li>算法具有很多变种</li>
 <li>算法使用的数据无需客户知晓</li>
 <li>对很多行为有很多的if-else语句</li>
 </ul>
+<a id="more"></a>
 </li>
-<li>优点：<ul>
+<li><p>优点：</p>
+<ul>
 <li>提供一种替代继承的方法</li>
 <li>去掉if-else语句</li>
 <li>为同种行为提供不同的实现</li>
