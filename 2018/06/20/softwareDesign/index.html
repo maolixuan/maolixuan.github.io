@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/06/20/softwareDesign/index.html">
 <meta property="og:site_name" content="Blog of catch_mao">
 <meta property="og:description" content="策略模式 设计原则1：找出需要设计的类中的在不断变化的部分，将之提出来，不要与那些不需要变化的混合在一起。 设计原则2：提出的变化的部分，设计接口，针对接口编程，而不是针对实现的编程。 设计原则3：少用继承，多用组合。 将算法族封装成类; 使得在运行时动态的改变行为成为可能。   使用场景：  有很多的类，具有不同的行为 算法具有很多变种 算法使用的数据无需客户知晓 对很多行为有很多的if-els">
-<meta property="og:updated_time" content="2018-06-21T11:47:57.014Z">
+<meta property="og:updated_time" content="2018-06-22T11:51:52.142Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="软件设计模式">
 <meta name="twitter:description" content="策略模式 设计原则1：找出需要设计的类中的在不断变化的部分，将之提出来，不要与那些不需要变化的混合在一起。 设计原则2：提出的变化的部分，设计接口，针对接口编程，而不是针对实现的编程。 设计原则3：少用继承，多用组合。 将算法族封装成类; 使得在运行时动态的改变行为成为可能。   使用场景：  有很多的类，具有不同的行为 算法具有很多变种 算法使用的数据无需客户知晓 对很多行为有很多的if-els">
@@ -233,6 +233,47 @@
 </li>
 </ul>
 </li>
+<li>继承是扩展的一种形式，但是并不是获得灵活性的最好方式。</li>
+<li>组合和委托常常可以用在动态时添加新行为。</li>
+<li>装饰者类反映了它们所装饰对象的类型。</li>
+<li>你可以将一个组件用任意数量的装饰者包装起来。</li>
+<li><p>装饰者会引入大量的小类，导致复用变得复杂。</p>
+</li>
+<li><p>何时使用：</p>
+<ul>
+<li>需要为一个对象添加责任，并且不影响其他的对象。</li>
+<li>处理可撤销的责任。</li>
+<li>当生成子类不可行的时候，比如需要大量子类来支持各种排列组合</li>
+</ul>
+</li>
+<li>优点：<ul>
+<li>比静态继承有更多的灵活性</li>
+<li>在高层类中防止过多的特征<br>缺点：太多太小</li>
+</ul>
+</li>
+</ul>
+<h3 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h3><pre><code>**不用new创造对象**
+</code></pre><p>1，简单工厂其实不是一种设计模式而是一种编程习惯<br>   工厂模式定义了一个创建对象的接口，但由子类决定要实例化的类是哪一个。工厂方法让了类把实例化推迟到子类。</p>
+<pre><code>   * 设计原则：要依赖抽象，不依赖具体的类。
+* 不能让高层组件依赖低层组件，而两者都要依赖于“抽象” 。
+* 要遵循依赖倒置原则，工厂方法是最有威力的技巧之一  。
+* 所谓的“高层”组件，是由其他底层组价定义其行为的类。
+
+* 工厂方法模式能够封装具体类型的实例化。
+* 抽象的创建者提供了一个创建对象的接口，称为“工厂方法”。
+* 在抽象的Creator中，任何其他实现的方法，都可能使用到这个工厂方法所制造出来的产品，但只有子类真正实现这个工厂方法并创建产品。
+</code></pre><p>2，抽象工厂模式提供了一个接口，用于创建相关或依赖对象的家族，而不需要明确指定具体类。</p>
+<p><strong>总结</strong>：</p>
+<pre><code>* 所有的工厂都将对象创建封装起来
+ * 工厂方法依赖于继承对象创建委托给子类，子类实现工厂方法创建对象
+ * 抽象工厂依赖于对象组合；对象创建由工厂接口中的方法进行实现。
+ * 所有的工厂模式都促进松耦合，具体是通过减少应用对于具体类型的依赖实现。
+ * 工厂是一个面向抽象编程而不是面向具体实现编程的有力工具。
+</code></pre><p>区别：</p>
+<ul>
+<li>简单工厂 ： 用来生产同一等级结构中的任意产品。（对于增加新的产品，无能为力）</li>
+<li>工厂方法 ：用来生产同一等级结构中的固定产品。（支持增加任意产品）  </li>
+<li>抽象工厂 ：用来生产不同产品族的全部产品。（对于增加新的产品，无能为力；支持增加产品族）<br>以上三种工厂 方法在等级结构和产品族这两个方向上的支持程度不同。所以要根据情况考虑应该使用哪种方法。 </li>
 </ul>
 
       
@@ -367,7 +408,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#策略模式"><span class="toc-number">1.</span> <span class="toc-text">策略模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#观察模式"><span class="toc-number">2.</span> <span class="toc-text">观察模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#装饰者模式"><span class="toc-number">3.</span> <span class="toc-text">装饰者模式</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#策略模式"><span class="toc-number">1.</span> <span class="toc-text">策略模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#观察模式"><span class="toc-number">2.</span> <span class="toc-text">观察模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#装饰者模式"><span class="toc-number">3.</span> <span class="toc-text">装饰者模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#工厂模式"><span class="toc-number">4.</span> <span class="toc-text">工厂模式</span></a></li></ol>
                     </div>
                 </span>
             </div>
