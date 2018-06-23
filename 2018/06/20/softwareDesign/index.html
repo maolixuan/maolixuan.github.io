@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/06/20/softwareDesign/index.html">
 <meta property="og:site_name" content="Blog of catch_mao">
 <meta property="og:description" content="策略模式 设计原则1：找出需要设计的类中的在不断变化的部分，将之提出来，不要与那些不需要变化的混合在一起。 设计原则2：提出的变化的部分，设计接口，针对接口编程，而不是针对实现的编程。 设计原则3：少用继承，多用组合。 将算法族封装成类; 使得在运行时动态的改变行为成为可能。   使用场景：  有很多的类，具有不同的行为 算法具有很多变种 算法使用的数据无需客户知晓 对很多行为有很多的if-els">
-<meta property="og:updated_time" content="2018-06-23T10:47:20.513Z">
+<meta property="og:updated_time" content="2018-06-23T11:34:12.733Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="软件设计模式">
 <meta name="twitter:description" content="策略模式 设计原则1：找出需要设计的类中的在不断变化的部分，将之提出来，不要与那些不需要变化的混合在一起。 设计原则2：提出的变化的部分，设计接口，针对接口编程，而不是针对实现的编程。 设计原则3：少用继承，多用组合。 将算法族封装成类; 使得在运行时动态的改变行为成为可能。   使用场景：  有很多的类，具有不同的行为 算法具有很多变种 算法使用的数据无需客户知晓 对很多行为有很多的if-els">
@@ -346,7 +346,8 @@
 <h3 id="模板方法模式"><a href="#模板方法模式" class="headerlink" title="模板方法模式"></a>模板方法模式</h3><p><strong>封装算法</strong></p>
 <ul>
 <li>模板方法模式在一个方法中定义一个算法的骨架，而将一些步骤<code>延迟</code>到子类中。模板方法使得子类可以在不改变算法结构的情况下，重新定义算法中的某些步骤。</li>
-<li>对模板方法进行挂钩：<blockquote>
+<li><p>对模板方法进行挂钩：</p>
+<blockquote>
 <ul>
 <li>钩子是一个在抽象类中声明的方法,但是只给出了空的或者缺省的实现。</li>
 <li>这给了子类对算法不同点进行挂钩的能力;要不要挂钩，子类自行决定。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">abstract class AbstractClass &#123;</div><div class="line">    final void templateMethod() &#123;</div><div class="line">        primitiveOperation1();</div><div class="line">        primitiveOperation2();</div><div class="line">        concreteOperation();</div><div class="line">        hook();</div><div class="line">    &#125;</div><div class="line">    abstract void primitiveOperation1();</div><div class="line">    abstract void primitiveOperation2();</div><div class="line">    final void concreteOperation() &#123;</div><div class="line">        // implementation here</div><div class="line">    &#125;</div><div class="line">    void hook() &#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -354,7 +355,21 @@
 </ul>
 </blockquote>
 </li>
+<li><p><code>好莱坞原则：</code>别调用（打电话给）我们，我们会调用（打电话给）你。</p>
+<ul>
+<li>有了这个原则,我们允许低层组件将自己挂钩到系统上,但是高层组件会决定什么时候和怎样使用这些低层组件。</li>
+<li>换句话说,高层组件对待低层 组件的方式是“别调用我们，我们会调用你”。</li>
 </ul>
+</li>
+</ul>
+<h3 id="比较策略模式和模板方法模式"><a href="#比较策略模式和模板方法模式" class="headerlink" title="比较策略模式和模板方法模式"></a>比较策略模式和模板方法模式</h3><blockquote>
+<ul>
+<li>策略模式定义了一个算法族，并使它们可以互相替换。自从每个算法都被封装，客户可以很方便的使用不同算法。</li>
+<li>模板方法定义了一个算法的框架，但是允许它的子类做其中一部分工作，这样对于算法的某个步骤就有不同的，但仍然能控制整个算法的结构。</li>
+<li>策略通过对象组合给客户提供了一个算法的实现。更灵活。</li>
+<li>模板方法对算法有更强的控制，并且没有重复代码。所以所有的子类可以共享。更少的对象，更高效。</li>
+</ul>
+</blockquote>
 
       
 
@@ -488,7 +503,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#策略模式"><span class="toc-number">1.</span> <span class="toc-text">策略模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#观察模式"><span class="toc-number">2.</span> <span class="toc-text">观察模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#装饰者模式"><span class="toc-number">3.</span> <span class="toc-text">装饰者模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#工厂模式"><span class="toc-number">4.</span> <span class="toc-text">工厂模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#单件模式"><span class="toc-number">5.</span> <span class="toc-text">单件模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#命令模式"><span class="toc-number">6.</span> <span class="toc-text">命令模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#适配器模式"><span class="toc-number">7.</span> <span class="toc-text">适配器模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#外观模式"><span class="toc-number">8.</span> <span class="toc-text">外观模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模板方法模式"><span class="toc-number">9.</span> <span class="toc-text">模板方法模式</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#策略模式"><span class="toc-number">1.</span> <span class="toc-text">策略模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#观察模式"><span class="toc-number">2.</span> <span class="toc-text">观察模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#装饰者模式"><span class="toc-number">3.</span> <span class="toc-text">装饰者模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#工厂模式"><span class="toc-number">4.</span> <span class="toc-text">工厂模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#单件模式"><span class="toc-number">5.</span> <span class="toc-text">单件模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#命令模式"><span class="toc-number">6.</span> <span class="toc-text">命令模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#适配器模式"><span class="toc-number">7.</span> <span class="toc-text">适配器模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#外观模式"><span class="toc-number">8.</span> <span class="toc-text">外观模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模板方法模式"><span class="toc-number">9.</span> <span class="toc-text">模板方法模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#比较策略模式和模板方法模式"><span class="toc-number">10.</span> <span class="toc-text">比较策略模式和模板方法模式</span></a></li></ol>
                     </div>
                 </span>
             </div>
