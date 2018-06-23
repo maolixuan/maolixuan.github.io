@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/06/20/softwareDesign/index.html">
 <meta property="og:site_name" content="Blog of catch_mao">
 <meta property="og:description" content="策略模式 设计原则1：找出需要设计的类中的在不断变化的部分，将之提出来，不要与那些不需要变化的混合在一起。 设计原则2：提出的变化的部分，设计接口，针对接口编程，而不是针对实现的编程。 设计原则3：少用继承，多用组合。 将算法族封装成类; 使得在运行时动态的改变行为成为可能。   使用场景：  有很多的类，具有不同的行为 算法具有很多变种 算法使用的数据无需客户知晓 对很多行为有很多的if-els">
-<meta property="og:updated_time" content="2018-06-23T10:43:20.154Z">
+<meta property="og:updated_time" content="2018-06-23T10:47:20.513Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="软件设计模式">
 <meta name="twitter:description" content="策略模式 设计原则1：找出需要设计的类中的在不断变化的部分，将之提出来，不要与那些不需要变化的混合在一起。 设计原则2：提出的变化的部分，设计接口，针对接口编程，而不是针对实现的编程。 设计原则3：少用继承，多用组合。 将算法族封装成类; 使得在运行时动态的改变行为成为可能。   使用场景：  有很多的类，具有不同的行为 算法具有很多变种 算法使用的数据无需客户知晓 对很多行为有很多的if-els">
@@ -346,12 +346,16 @@
 <h3 id="模板方法模式"><a href="#模板方法模式" class="headerlink" title="模板方法模式"></a>模板方法模式</h3><p><strong>封装算法</strong></p>
 <ul>
 <li>模板方法模式在一个方法中定义一个算法的骨架，而将一些步骤<code>延迟</code>到子类中。模板方法使得子类可以在不改变算法结构的情况下，重新定义算法中的某些步骤。</li>
-<li>对模板方法进行挂钩：</li>
+<li>对模板方法进行挂钩：<blockquote>
+<ul>
+<li>钩子是一个在抽象类中声明的方法,但是只给出了空的或者缺省的实现。</li>
+<li>这给了子类对算法不同点进行挂钩的能力;要不要挂钩，子类自行决定。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">abstract class AbstractClass &#123;</div><div class="line">    final void templateMethod() &#123;</div><div class="line">        primitiveOperation1();</div><div class="line">        primitiveOperation2();</div><div class="line">        concreteOperation();</div><div class="line">        hook();</div><div class="line">    &#125;</div><div class="line">    abstract void primitiveOperation1();</div><div class="line">    abstract void primitiveOperation2();</div><div class="line">    final void concreteOperation() &#123;</div><div class="line">        // implementation here</div><div class="line">    &#125;</div><div class="line">    void hook() &#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">abstract class AbstractClass &#123;</div><div class="line">    final void templateMethod() &#123;</div><div class="line">        primitiveOperation1();</div><div class="line">        primitiveOperation2();</div><div class="line">        concreteOperation();</div><div class="line">        hook();</div><div class="line">    &#125;</div><div class="line">    abstract void primitiveOperation1();</div><div class="line">    abstract void primitiveOperation2();</div><div class="line">    final void concreteOperation() &#123;</div><div class="line">        // implementation here</div><div class="line">    &#125;</div><div class="line">    void hook() &#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<pre><code>* 钩子是一个在抽象类中声明的方法,但是只给出了空的或者缺省的实现。
-* 这给了子类对算法不同点进行挂钩的能力;要不要挂钩，子类自行决定。
-</code></pre>
+</blockquote>
+</li>
+</ul>
+
       
 
       
