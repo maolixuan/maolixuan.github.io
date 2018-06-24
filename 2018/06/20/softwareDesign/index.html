@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/06/20/softwareDesign/index.html">
 <meta property="og:site_name" content="Blog of catch_mao">
 <meta property="og:description" content="策略模式 设计原则1：找出需要设计的类中的在不断变化的部分，将之提出来，不要与那些不需要变化的混合在一起。 设计原则2：提出的变化的部分，设计接口，针对接口编程，而不是针对实现的编程。 设计原则3：少用继承，多用组合。 将算法族封装成类; 使得在运行时动态的改变行为成为可能。   使用场景：  有很多的类，具有不同的行为 算法具有很多变种 算法使用的数据无需客户知晓 对很多行为有很多的if-els">
-<meta property="og:updated_time" content="2018-06-23T12:21:34.460Z">
+<meta property="og:updated_time" content="2018-06-24T03:39:12.476Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="软件设计模式">
 <meta name="twitter:description" content="策略模式 设计原则1：找出需要设计的类中的在不断变化的部分，将之提出来，不要与那些不需要变化的混合在一起。 设计原则2：提出的变化的部分，设计接口，针对接口编程，而不是针对实现的编程。 设计原则3：少用继承，多用组合。 将算法族封装成类; 使得在运行时动态的改变行为成为可能。   使用场景：  有很多的类，具有不同的行为 算法具有很多变种 算法使用的数据无需客户知晓 对很多行为有很多的if-els">
@@ -376,6 +376,33 @@
 <li>模板方法对算法有更强的控制，并且没有重复代码。所以所有的子类可以共享。更少的对象，更高效。</li>
 </ul>
 </blockquote>
+<h3 id="迭代器模式"><a href="#迭代器模式" class="headerlink" title="迭代器模式"></a>迭代器模式</h3><p><strong>迭代器模式提供一种方法顺序访问一个聚合对象中的各个元素，而又不暴露其内部的表示</strong></p>
+<ul>
+<li>我们有一个统一的方法访问聚合中的每个对象，就可以编写多态的代码和这些代码搭配。</li>
+<li>游走的任务放在迭代器上，而不是聚合上。这就简化了聚合的接口和实现，也让责任各得其所。</li>
+<li>设计原则：一个类应该只有一个引起变化的原因。<blockquote>
+<ul>
+<li>内聚力：<ul>
+<li>内聚力是一个术语，用来度量一个类或模块紧密的达到单一目的或责任</li>
+<li>当一个模块或一个类被设计成只支持一组相关功能时，我们说它具有高内聚力；反之，当被设计成支持一组不相关的功能时，我们说它具有低内聚。</li>
+<li>内聚力是一个比单一责任原则更普遍的概念，但两者是密切相关的。遵守这个原则的类具有很高的凝聚力，而且比背负许多责任的低内聚类更容易维护.</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h3 id="组合模式"><a href="#组合模式" class="headerlink" title="组合模式"></a>组合模式</h3><p><code>组合模式允许你将对象组合成树形结构来表现“整体/部分”层次结果。组合能让客户以一致处理个别对象组合。</code></p>
+<ul>
+<li>使用组合结构，我们能够把相同的操作应用在组合和个别对象上。</li>
+<li>在大多数情况下，我们可以忽略对象组合和个别对象之间的差别。</li>
+</ul>
+<h3 id="匹配联系"><a href="#匹配联系" class="headerlink" title="匹配联系"></a>匹配联系</h3><blockquote>
+<ul>
+<li>策略模式————封装可互换的行为，并使用委托觉得使用哪一个</li>
+<li></li>
+</ul>
+</blockquote>
 
       
 
@@ -509,7 +536,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#策略模式"><span class="toc-number">1.</span> <span class="toc-text">策略模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#观察模式"><span class="toc-number">2.</span> <span class="toc-text">观察模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#装饰者模式"><span class="toc-number">3.</span> <span class="toc-text">装饰者模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#工厂模式"><span class="toc-number">4.</span> <span class="toc-text">工厂模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#单件模式"><span class="toc-number">5.</span> <span class="toc-text">单件模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#命令模式"><span class="toc-number">6.</span> <span class="toc-text">命令模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#适配器模式"><span class="toc-number">7.</span> <span class="toc-text">适配器模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#外观模式"><span class="toc-number">8.</span> <span class="toc-text">外观模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模板方法模式"><span class="toc-number">9.</span> <span class="toc-text">模板方法模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#比较策略模式和模板方法模式"><span class="toc-number">10.</span> <span class="toc-text">比较策略模式和模板方法模式</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#策略模式"><span class="toc-number">1.</span> <span class="toc-text">策略模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#观察模式"><span class="toc-number">2.</span> <span class="toc-text">观察模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#装饰者模式"><span class="toc-number">3.</span> <span class="toc-text">装饰者模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#工厂模式"><span class="toc-number">4.</span> <span class="toc-text">工厂模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#单件模式"><span class="toc-number">5.</span> <span class="toc-text">单件模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#命令模式"><span class="toc-number">6.</span> <span class="toc-text">命令模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#适配器模式"><span class="toc-number">7.</span> <span class="toc-text">适配器模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#外观模式"><span class="toc-number">8.</span> <span class="toc-text">外观模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模板方法模式"><span class="toc-number">9.</span> <span class="toc-text">模板方法模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#比较策略模式和模板方法模式"><span class="toc-number">10.</span> <span class="toc-text">比较策略模式和模板方法模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#迭代器模式"><span class="toc-number">11.</span> <span class="toc-text">迭代器模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#组合模式"><span class="toc-number">12.</span> <span class="toc-text">组合模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#匹配联系"><span class="toc-number">13.</span> <span class="toc-text">匹配联系</span></a></li></ol>
                     </div>
                 </span>
             </div>
