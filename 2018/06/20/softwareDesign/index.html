@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>软件设计模式 | Blog of catch_mao</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="匹配联系  策略模式————————封装可互换的行为，并使用委托觉得使用哪一个 装饰者模式——————不改变接口加入责任 适配器模式——————改变一个或多个类的接口 工厂方法模板————由子类决定实例化哪个具体的类 迭代器模式——————提供一个方式来遍历集合，而无须暴露集合的实现 外观模式————————简化一类群的接口 组合模式————————客户可以将对象的集合以及个别的对象一视同仁 观察">
+  <meta name="description" content="基本概念什么是设计模式A 每一个模式描述了一个在我们周围不断重复发生的问题，以及该问题的解决方案的核心。这样，你就能一次又一次地使用该方案而不必做重复劳动。B 每个设计模式有遵循三个部分原则：描述了一个具体的环境、一个问题和一个解决方法之间的关系； 目的是`可复用性` `灵活性` `可扩展性` `可移植性`">
 <meta name="keywords" content="12种模式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="软件设计模式">
 <meta property="og:url" content="http://yoursite.com/2018/06/20/softwareDesign/index.html">
 <meta property="og:site_name" content="Blog of catch_mao">
-<meta property="og:description" content="匹配联系  策略模式————————封装可互换的行为，并使用委托觉得使用哪一个 装饰者模式——————不改变接口加入责任 适配器模式——————改变一个或多个类的接口 工厂方法模板————由子类决定实例化哪个具体的类 迭代器模式——————提供一个方式来遍历集合，而无须暴露集合的实现 外观模式————————简化一类群的接口 组合模式————————客户可以将对象的集合以及个别的对象一视同仁 观察">
-<meta property="og:updated_time" content="2018-06-24T08:45:11.006Z">
+<meta property="og:description" content="基本概念什么是设计模式A 每一个模式描述了一个在我们周围不断重复发生的问题，以及该问题的解决方案的核心。这样，你就能一次又一次地使用该方案而不必做重复劳动。B 每个设计模式有遵循三个部分原则：描述了一个具体的环境、一个问题和一个解决方法之间的关系； 目的是`可复用性` `灵活性` `可扩展性` `可移植性`">
+<meta property="og:updated_time" content="2018-06-24T11:36:07.715Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="软件设计模式">
-<meta name="twitter:description" content="匹配联系  策略模式————————封装可互换的行为，并使用委托觉得使用哪一个 装饰者模式——————不改变接口加入责任 适配器模式——————改变一个或多个类的接口 工厂方法模板————由子类决定实例化哪个具体的类 迭代器模式——————提供一个方式来遍历集合，而无须暴露集合的实现 外观模式————————简化一类群的接口 组合模式————————客户可以将对象的集合以及个别的对象一视同仁 观察">
+<meta name="twitter:description" content="基本概念什么是设计模式A 每一个模式描述了一个在我们周围不断重复发生的问题，以及该问题的解决方案的核心。这样，你就能一次又一次地使用该方案而不必做重复劳动。B 每个设计模式有遵循三个部分原则：描述了一个具体的环境、一个问题和一个解决方法之间的关系； 目的是`可复用性` `灵活性` `可扩展性` `可移植性`">
   
     <link rel="alternative" href="/atom.xml" title="Blog of catch_mao" type="application/atom+xml">
   
@@ -174,7 +174,13 @@
     <div class="article-entry" itemprop="articleBody">
 	  
       
-        <h3 id="匹配联系"><a href="#匹配联系" class="headerlink" title="匹配联系"></a>匹配联系</h3><blockquote>
+        <h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><h4 id="什么是设计模式"><a href="#什么是设计模式" class="headerlink" title="什么是设计模式"></a>什么是设计模式</h4><p>A 每一个模式描述了一个在我们周围不断重复发生的问题，以及该问题的解决方案的核心。这样，你就能一次又一次地使用该方案而不必做重复劳动。<br>B 每个设计模式有遵循三个部分原则：描述了一个具体的环境、一个问题和一个解决方法之间的关系；</p>
+<h4 id="目的是"><a href="#目的是" class="headerlink" title="目的是"></a>目的是</h4><pre><code>`可复用性`
+`灵活性`
+`可扩展性`
+`可移植性`
+</code></pre><a id="more"></a>
+<h3 id="匹配联系"><a href="#匹配联系" class="headerlink" title="匹配联系"></a>匹配联系</h3><blockquote>
 <ul>
 <li>策略模式————————封装可互换的行为，并使用委托觉得使用哪一个</li>
 <li>装饰者模式——————不改变接口加入责任</li>
@@ -188,7 +194,6 @@
 <li>模板方法模式—————由子类决定如何实现算法中的某些步骤</li>
 </ul>
 </blockquote>
-<a id="more"></a>
 <h3 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h3><ul>
 <li>设计原则1：找出需要设计的类中的在不断变化的部分，将之提出来，不要与那些不需要变化的混合在一起。</li>
 <li>设计原则2：提出的变化的部分，设计接口，针对接口编程，而不是针对实现的编程。</li>
@@ -572,7 +577,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#匹配联系"><span class="toc-number">1.</span> <span class="toc-text">匹配联系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#策略模式"><span class="toc-number">2.</span> <span class="toc-text">策略模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#观察模式"><span class="toc-number">3.</span> <span class="toc-text">观察模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#装饰者模式"><span class="toc-number">4.</span> <span class="toc-text">装饰者模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#工厂模式"><span class="toc-number">5.</span> <span class="toc-text">工厂模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#单件模式"><span class="toc-number">6.</span> <span class="toc-text">单件模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#命令模式"><span class="toc-number">7.</span> <span class="toc-text">命令模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#适配器模式"><span class="toc-number">8.</span> <span class="toc-text">适配器模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#外观模式"><span class="toc-number">9.</span> <span class="toc-text">外观模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模板方法模式"><span class="toc-number">10.</span> <span class="toc-text">模板方法模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#比较策略模式和模板方法模式"><span class="toc-number">11.</span> <span class="toc-text">比较策略模式和模板方法模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#迭代器模式"><span class="toc-number">12.</span> <span class="toc-text">迭代器模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#组合模式"><span class="toc-number">13.</span> <span class="toc-text">组合模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#迭代器与组合模式之区别"><span class="toc-number">14.</span> <span class="toc-text">迭代器与组合模式之区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#状态模式"><span class="toc-number">15.</span> <span class="toc-text">状态模式</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本概念"><span class="toc-number">1.</span> <span class="toc-text">基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#什么是设计模式"><span class="toc-number">1.1.</span> <span class="toc-text">什么是设计模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#目的是"><span class="toc-number">1.2.</span> <span class="toc-text">目的是</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#匹配联系"><span class="toc-number">2.</span> <span class="toc-text">匹配联系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#策略模式"><span class="toc-number">3.</span> <span class="toc-text">策略模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#观察模式"><span class="toc-number">4.</span> <span class="toc-text">观察模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#装饰者模式"><span class="toc-number">5.</span> <span class="toc-text">装饰者模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#工厂模式"><span class="toc-number">6.</span> <span class="toc-text">工厂模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#单件模式"><span class="toc-number">7.</span> <span class="toc-text">单件模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#命令模式"><span class="toc-number">8.</span> <span class="toc-text">命令模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#适配器模式"><span class="toc-number">9.</span> <span class="toc-text">适配器模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#外观模式"><span class="toc-number">10.</span> <span class="toc-text">外观模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模板方法模式"><span class="toc-number">11.</span> <span class="toc-text">模板方法模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#比较策略模式和模板方法模式"><span class="toc-number">12.</span> <span class="toc-text">比较策略模式和模板方法模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#迭代器模式"><span class="toc-number">13.</span> <span class="toc-text">迭代器模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#组合模式"><span class="toc-number">14.</span> <span class="toc-text">组合模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#迭代器与组合模式之区别"><span class="toc-number">15.</span> <span class="toc-text">迭代器与组合模式之区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#状态模式"><span class="toc-number">16.</span> <span class="toc-text">状态模式</span></a></li></ol>
                     </div>
                 </span>
             </div>
